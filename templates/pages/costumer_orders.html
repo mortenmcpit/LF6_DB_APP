@@ -4,13 +4,25 @@
         <h2>Kundennummer: {{ customer.personnumber }}</h2>
 
 <table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Bestellnummer</th>
+        <th scope="col">Produktname</th>
+        <th scope="col">Menge</th>
+        <th scope="col">Gesamtsumme</th>
+    </tr>
+    </thead>
+    <tbody>
     {% for order in orders %}
         <tr>
     <th scope="row">{{ order.ordernumber }}</th>
             <td>{{ order.article }}</td>
-            <td>{{ order.ordersum }}</td>
             <td>{{ order.articlequantity }}</td>
+            <td>{{ order.ordersum }}</td>
+            <td><a class="btn btn-outline-success" type="button"
+                   href="{{ url_for('main.show_article', id=order.articlenumber) }}">Produkt Anzeigen</a></td>
         </tr>
     {% endfor %}
+    </tbody>
 </table>
 {% endblock content %}

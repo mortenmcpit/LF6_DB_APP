@@ -207,3 +207,20 @@ def customer_orders(id):
     customer = Person.query.get_or_404(id)
     orders = Order.query.filter_by(customernumber=id)
     return render_template('pages/costumer_orders.html', customer=customer, orders=orders)
+
+@main.route('/show_article/<int:id>', methods=['GET', 'POST'])
+def show_article(id):
+    article = Article.query.get_or_404(id)
+    return render_template('pages/article.html', article=article)
+
+@main.route('/show_producer/<int:id>', methods=['GET', 'POST'])
+def show_producer(id):
+    producer = Producer.query.get_or_404(id)
+    articles = Article.query.filter_by(producernumber=id)
+    return render_template('pages/producer.html', producer=producer, articles=articles)
+
+@main.route('/show_country/<string:name>', methods=['GET', 'POST'])
+def show_country(name):
+    producers = Producer.query.filter_by(country=name)
+    customers = Person.query.filter_by(country=name)
+    return render_template('pages/country.html', producers=producers, customers=customers)

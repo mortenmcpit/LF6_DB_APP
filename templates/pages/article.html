@@ -1,0 +1,12 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+    <h1>{{ article.articlename }}</h1>
+        <p>
+            Artikelnummer: {{ article.articlenumber }} <br>
+            Hersteller: {{ article.producer }} <br>
+            Preis: {{ article.price }} <br>
+            <br>
+            <a class="btn btn-outline-success" type="button"
+               href="{{ url_for('main.show_producer', id=article.producernumber) }}">Hersteller Anzeigen</a>
+        </p>
+{% endblock content %}
