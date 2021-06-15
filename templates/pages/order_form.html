@@ -1,0 +1,20 @@
+{% extends 'base/_base.html' %}
+{% from 'macros/macros.html' import form_field %}
+{% block content %}
+    <form action="" id="form" method="post">
+        {#        <div class="{% if form.errors %}invalid{% endif %} mb-2">#}
+        {#            {% for error in form.errors %}#}
+        {#                {{ error }}#}
+        {#            {% endfor %}#}
+        {#        </div>#}
+        {{ form.hidden_tag() }}
+
+        {{ form_field(form.articlenumber) }}
+        {{ form_field(form.customernumber) }}
+        {{ form_field(form.articlequantity) }}
+        {{ form_field(form.ordersum) }}
+        <button type="submit" class="submit-btn btn btn-success">
+            Speichern
+        </button>
+    </form>
+{% endblock content %}

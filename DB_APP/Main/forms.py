@@ -27,10 +27,16 @@ class ArticleForm(FlaskForm):
         db.session.commit()
 
     def update(self, obj):
-        pass
+        # self.populate_obj(obj)
+        obj.producernumber = self.producernumber.data
+        obj.articlename = self.articlename.data
+        obj.price = self.price.data
+        db.session.commit()
 
     def fill(self, obj):
-        pass
+        self.producernumber.data = obj.producernumber
+        self.articlename.data = obj.articlename
+        self.price.data = obj.price
 
 
 # Create new or Edit existing Orders
@@ -44,7 +50,7 @@ class OrderForm(FlaskForm):
     customernumber = QuerySelectField(
         label="Kunde",
         query_factory=lambda: Person.query.all(),
-        get_label="Kundennummer",
+        # get_label="personnumber",
     )
     articlequantity = IntegerField()
     ordersum = IntegerField()
@@ -59,10 +65,18 @@ class OrderForm(FlaskForm):
         db.session.commit()
 
     def update(self, obj):
-        pass
+        # self.populate_obj(obj)
+        obj.articlenumber = self.articlenumber.data
+        obj.customernumber = self.customernumber.data
+        obj.articlequantity = self.articlequantity.data
+        obj.ordersum = self.ordersum.data
+        db.session.commit()
 
     def fill(self, obj):
-        pass
+        self.articlenumber.data = obj.articlenumber
+        self.customernumber.data = obj.customernumber
+        self.articlequantity.data = obj.articlequantity
+        self.ordersum.data = obj.ordersum
 
 
 # Create new or Edit existing Producers
@@ -79,10 +93,14 @@ class ProducerForm(FlaskForm):
         db.session.commit()
 
     def update(self, obj):
-        pass
+        # self.populate_obj(obj)
+        obj.producername = self.producername.data
+        obj.country = self.country.data
+        db.session.commit()
 
     def fill(self, obj):
-        pass
+        self.producername.data = obj.producername
+        self.country.data = obj.country
 
 
 # Create new or Edit existing Persons
@@ -109,7 +127,21 @@ class PersonForm(FlaskForm):
         db.session.commit()
 
     def update(self, obj):
-        pass
+        # self.populate_obj(obj)
+        obj.lastname = self.lastname.data
+        obj.firstname = self.firstname.data
+        obj.street = self.street.data
+        obj.place = self.place.data
+        obj.country = self.country.data
+        obj.birthday = self.birthday.data
+        obj.zipcode = self.zipcode.data
+        db.session.commit()
 
     def fill(self, obj):
-        pass
+        self.lastname.data = obj.lastname
+        self.firstname.data = obj.firstname
+        self.street.data = obj.street
+        self.place.data = obj.place
+        self.country.data = obj.country
+        self.birthday.data = obj.birthday
+        self.zipcode.data = obj.zipcode

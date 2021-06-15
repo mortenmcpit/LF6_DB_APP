@@ -10,24 +10,46 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ url_for('main.homepage') }}">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.articles') }}">Artikel</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-expanded="false">Artikel...</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('main.articles') }}">alle Artikel</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.add_article') }}">Artikel hinzufügen</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.add_article') }}">Artikel hinzufügen</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-expanded="false">Hersteller...</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('main.producers') }}">alle Hersteller</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.add_producer') }}">Hersteller hinzufügen</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.producers') }}">Hersteller</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-expanded="false">Personen...</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('main.customers') }}">alle Personen</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.add_customer') }}">Person hinzufügen</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.add_producer') }}">Hersteller hinzufügen</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                       aria-expanded="false">Bestellungen...</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('main.orders') }}">alle Bestellungen</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.add_order') }}">Bestellung hinzufügen</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.customers') }}">Personen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.add_customer') }}">Person hinzufügen</a>
-                </li>
+
             </ul>
         </div>
     </div>
