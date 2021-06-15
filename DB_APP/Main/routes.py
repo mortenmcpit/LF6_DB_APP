@@ -36,7 +36,12 @@ def producers():
 @main.route('/customers', methods=['GET', 'POST'])
 def customers():
     customers = Person.query.all()
-    return render_template('pages/customers.html', customers=customers)
+    form = PersonForm(request.form)
+    if request.method == 'POST' and form.validate():
+        form.save()
+        flash('neuer Kunde eingetragen', 'success')
+        return redirect(url_for('main.customers'))
+    return render_template('pages/customers.html', customers=customers, form=form)
 
 
 """ Orders Page """
@@ -196,3 +201,9 @@ def delete_customer(id):
         flash('Der Kunde wurde gelöscht', 'success')
         return redirect(url_for('main.customers'))
     return render_template('', customer=customer)
+
+@main.route('/customer_orders/<int:id>', methods=['GET', 'POST'])
+def customer_orders(id):
+    customer = Person.query.get_or_404(id)
+    orders = Order.query.filter_by(customernumber=id)
+    return render_template('pages/costumer_orders.html', customer=customer, orders=orders)

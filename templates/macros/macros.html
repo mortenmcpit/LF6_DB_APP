@@ -1,10 +1,12 @@
-{% macro form_field(field, required=False, form_classes='') %}
-    {% if required %}
-        <div class="form-group required">
-        <strong>{{ field.label(class='control-label') }}</strong>
-    {% else %}
-        <div class="form-group">
-        <strong>{{ field.label }}</strong>
+{% macro form_field(field, required=False, form_classes='', label=False) %}
+    {% if label %}
+        {% if required %}
+            <div class="form-group required">
+            <strong>{{ field.label(class='control-label') }}</strong>
+        {% else %}
+            <div class="form-group">
+            <strong>{{ field.label }}</strong>
+        {% endif %}
     {% endif %}
 {% if field.errors %}
     {{ field(class='form-control is-invalid' + form_classes) }}

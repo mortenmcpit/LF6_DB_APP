@@ -112,7 +112,7 @@ class PersonForm(FlaskForm):
     place = StringField()
     zipcode = IntegerField()
     country = StringField()
-    birthday = DateField()
+    birthday = StringField()
 
     def save(self):
         person = Person(personnumber=customernumgenerator(),
