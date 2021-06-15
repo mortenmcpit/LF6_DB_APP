@@ -1,0 +1,11 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+    <h1>Hersteller</h1>
+    {% for producer in producers %}
+        <p>
+            {{ producer.producernumber }}
+            {{ producer.producername }}
+            {{ producer.country }}
+        </p>
+    {% endfor %}
+{% endblock content %}

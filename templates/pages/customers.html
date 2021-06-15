@@ -1,0 +1,15 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+    <h1>Personen</h1>
+    {% for customer in customers %}
+        <p>
+            {{ customer.firstname }}
+            {{ customer.lastname }}
+            {{ customer.street }}
+            {{ customer.place }}
+            {{ customer.zipcode }}
+            {{ customer.country }}
+            {{ customer.birthday }}
+        </p>
+    {% endfor %}
+{% endblock content %}

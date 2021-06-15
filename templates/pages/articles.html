@@ -1,0 +1,12 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+    <h1>Artikel</h1>
+    {% for article in articles %}
+        <p>
+            {{ article.articlenumber }}
+            {{ article.producer }}
+            {{ article.articlename }}
+            {{ article.price }}
+        </p>
+    {% endfor %}
+{% endblock content %}

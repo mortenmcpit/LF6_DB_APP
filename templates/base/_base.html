@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SuperDuperMart</title>
+    {# imports #}
+    {% include 'imports/_css_import.html' %}
+    {% include 'imports/_js_import.html' %}
+</head>
+<body>
+{% include 'base/_nav.html' %}
+<div class="container-fluid">
+    {% block content %}
+    {% endblock content %}
+</div>
+</body>
+</html>
