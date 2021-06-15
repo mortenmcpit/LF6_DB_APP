@@ -1,13 +1,56 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-    <h1>Bestellungen</h1>
+<h1>Bestellungen</h1>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Artikel</th>
+        <th scope="col">Kunde</th>
+        <th scope="col">Menge</th>
+        <th scope="col">Gesamtsumme</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <form action="" id="form" method="post">
+        {{ form.hidden_tag() }}
+
+        <tr>
+            <th scope="row">#</th>
+            <td>{{ form_field(form.articlenumber) }}</td>
+            <td>{{ form_field(form.customernumber) }}</td>
+            <td>{{ form_field(form.ordersum) }}</td>
+            <td>{{ form_field(form.articlequantity) }}</td>
+            <td>
+                <button type="submit" class="submit-btn btn btn-success">
+                    Hinzufügen
+                </button>
+            </td>
+        </tr>
+    </form>
+
     {% for order in orders %}
-        <p>
-            {{ order.ordernumber }}
-            {{ order.article }}
-            {{ order.customer }}
-            {{ order.ordersum }}
-            {{ order.articlequantity }}
-        </p>
+    <tr>
+        <th scope="row">{{ order.ordernumber }}</th>
+        <td><a href="{{ url_for('main.show_article', id=order.articlenumber) }}">{{ order.article }}</a></td>
+        <td><a href="{{ url_for('main.customer_orders', id=order.customernumber) }}">{{ order.customer }}</a></td>
+        <td>{{ order.ordersum }}</td>
+        <td>{{ order.articlequantity }}</td>
+        <td>
+            <form action="{{ url_for('main.delete_order', id=order.ordernumber) }}" method="post">
+                <div class="btn-group">
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.edit_order', id=order.ordernumber) }}">Bearbeiten</a>
+                    <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                </div>
+            </form>
+
+        </td>
+    </tr>
     {% endfor %}
+    </tbody>
+</table>
+
 {% endblock content %}

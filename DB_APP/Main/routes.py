@@ -18,7 +18,12 @@ def homepage():
 @main.route('/articles', methods=['GET', 'POST'])
 def articles():
     articles = Article.query.all()
-    return render_template('pages/articles.html', articles=articles)
+    form = ArticleForm(request.form)
+    if request.method == 'POST' and form.validate():
+        form.save()
+        flash('neuer Artikel eingetragen', 'success')
+        return redirect(url_for('main.articles'))
+    return render_template('pages/articles.html', articles=articles, form=form)
 
 
 """ Producers Page """
@@ -27,7 +32,12 @@ def articles():
 @main.route('/producers', methods=['GET', 'POST'])
 def producers():
     producers = Producer.query.all()
-    return render_template('pages/producers.html', producers=producers)
+    form = ProducerForm(request.form)
+    if request.method == 'POST' and form.validate():
+        form.save()
+        flash('neuer Hersteller eingetragen', 'success')
+        return redirect(url_for('main.producers'))
+    return render_template('pages/producers.html', producers=producers, form=form)
 
 
 """ Customer Page """
@@ -50,7 +60,12 @@ def customers():
 @main.route('/orders', methods=['GET', 'POST'])
 def orders():
     orders = Order.query.all()
-    return render_template('pages/orders.html', orders=orders)
+    form = OrderForm(request.form)
+    if request.method == 'POST' and form.validate():
+        form.save()
+        flash('neue Bestellung eingetragen', 'success')
+        return redirect(url_for('main.orders'))
+    return render_template('pages/orders.html', orders=orders, form=form)
 
 
 """ Form Routes """
@@ -211,7 +226,8 @@ def customer_orders(id):
 @main.route('/show_article/<int:id>', methods=['GET', 'POST'])
 def show_article(id):
     article = Article.query.get_or_404(id)
-    return render_template('pages/article.html', article=article)
+    orders = Order.query.filter_by(articlenumber=id)
+    return render_template('pages/article.html', article=article, orders=orders)
 
 @main.route('/show_producer/<int:id>', methods=['GET', 'POST'])
 def show_producer(id):

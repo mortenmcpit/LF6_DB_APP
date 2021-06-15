@@ -1,11 +1,10 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-    <h1>{{ producer.producername }}</h1>
-    <h3>Herstellernummer: {{ producer.producernumber }}</h3>
-    <h3>Herstellerland: {{ producer.country }}</h3>
-    <a class="btn btn-outline-success" type="button"
-        href="{{ url_for('main.show_country', name=producer.country) }}">Herstellerland Anzeigen</a>
-    <br><br>
+<h1>{{ producer.producername }}</h1>
+<h3>Herstellernummer: {{ producer.producernumber }}</h3>
+<h3>Herstellerland: <a href="{{ url_for('main.show_country', name=producer.country) }}">{{ producer.country }}</a></h3>
+
+<br>
 
 <table class="table table-bordered">
     <thead>
@@ -13,18 +12,16 @@
         <th scope="col">Artikelnummer</th>
         <th scope="col">Artikelname</th>
         <th scope="col">Artikelpreis</th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
     {% for article in articles %}
     <tr>
         <th scope="row">{{ article.articlenumber }}</th>
-        <td>{{ article.articlename }}</td>
+        <td><a href="{{ url_for('main.show_article', id=article.articlenumber) }}">{{ article.articlename }}</a></td>
         <td>{{ article.price }}</td>
-        <td><a class="btn btn-outline-success" type="button"
-               href="{{ url_for('main.show_article', id=article.articlenumber) }}">Produkt Anzeigen</a></td>
     </tr>
     {% endfor %}
     </tbody>
+</table>
 {% endblock content %}

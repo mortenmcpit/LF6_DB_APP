@@ -1,12 +1,36 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-    <h1>{{ article.articlename }}</h1>
-        <p>
-            Artikelnummer: {{ article.articlenumber }} <br>
-            Hersteller: {{ article.producer }} <br>
-            Preis: {{ article.price }} <br>
-            <br>
-            <a class="btn btn-outline-success" type="button"
-               href="{{ url_for('main.show_producer', id=article.producernumber) }}">Hersteller Anzeigen</a>
-        </p>
+<h1>{{ article.articlename }}</h1>
+<p>
+    Artikelnummer: {{ article.articlenumber }} <br>
+    Hersteller: <a href="{{ url_for('main.show_producer', id=article.producernumber) }}">{{ article.producer }}</a> <br>
+    Preis: {{ article.price }} <br>
+
+
+<h3>Bestellungen</h3>
+
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Kunde</th>
+        <th scope="col">Menge</th>
+        <th scope="col">Gesamtsumme</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for order in orders %}
+    <tr>
+        <th scope="row">{{ order.ordernumber }}</th>
+        <td><a href="{{ url_for('main.customer_orders', id=order.customernumber) }}">{{ order.customer }}</a></td>
+        <td>{{ order.articlequantity }}</td>
+        <td>{{ order.ordersum }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</p>
 {% endblock content %}

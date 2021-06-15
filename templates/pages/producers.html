@@ -1,11 +1,51 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-    <h1>Hersteller</h1>
+<h1>Hersteller</h1>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Herstellernummer</th>
+        <th scope="col">Herstellername</th>
+        <th scope="col">Herstellerland</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <form action="" id="form" method="post">
+        {{ form.hidden_tag() }}
+
+        <tr>
+            <th scope="row">#</th>
+            <td>{{ form_field(form.producername) }}</td>
+            <td>{{ form_field(form.country) }}</td>
+            <td>
+                <button type="submit" class="submit-btn btn btn-success">
+                    Hinzufügen
+                </button>
+            </td>
+        </tr>
+    </form>
+
     {% for producer in producers %}
-        <p>
-            {{ producer.producernumber }}
-            {{ producer.producername }}
-            {{ producer.country }}
-        </p>
+    <tr>
+        <th scope="row">{{ producer.producernumber }}</th>
+        <td>{{ producer.producername }}</td>
+        <td><a href="{{ url_for('main.show_country', name=producer.country) }}">{{ producer.country }}</a></td>
+        <td>
+            <form action="{{ url_for('main.delete_producer', id=producer.producernumber) }}" method="post">
+                <div class="btn-group">
+                <a class="btn btn-outline-success" type="button"
+                   href="{{ url_for('main.edit_producer', id=producer.producernumber) }}">Bearbeiten</a>
+                <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                </div>
+            </form>
+
+        </td>
+    </tr>
     {% endfor %}
+    </tbody>
+</table>
+
+
 {% endblock content %}

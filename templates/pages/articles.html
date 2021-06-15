@@ -1,17 +1,53 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-    <h1>Artikel</h1>
+<h1>Artikel</h1>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Artikelnummer</th>
+        <th scope="col">Hersteller</th>
+        <th scope="col">Artikelname</th>
+        <th scope="col">Preis</th>
+    </tr>
+    </thead>
+    <tbody>
+    <form action="" id="form" method="post">
+        {{ form.hidden_tag() }}
+
+        <tr>
+            <th scope="row">#</th>
+            <td>{{ form_field(form.producernumber) }}</td>
+            <td>{{ form_field(form.articlename) }}</td>
+            <td>{{ form_field(form.price) }}</td>
+            <td>
+                <button type="submit" class="submit-btn btn btn-success">
+                    Hinzufügen
+                </button>
+            </td>
+        </tr>
+    </form>
+
     {% for article in articles %}
-        <p>
-            {{ article.articlenumber }}
-            {{ article.producer }}
-            {{ article.articlename }}
-            {{ article.price }}
-        </p>
-        <a class="btn btn-outline-success" type="button"
-           href="{{ url_for('main.edit_article', id=article.articlenumber) }}">Bearbeiten</a>
-        <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" id="form" method="post">
-            <input type="submit" class="btn btn-outline-danger" value="Löschen">
-        </form>
+    <tr>
+        <th scope="row">{{ article.articlenumber }}</th>
+        <td><a href="{{ url_for('main.show_producer', id=article.producernumber) }}">{{ article.producer }}</a></td>
+        <td>{{ article.articlename }}</td>
+        <td>{{ article.price }}</td>
+        <td>
+            <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" method="post">
+                <div class="btn-group">
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.edit_article', id=article.articlenumber) }}">Bearbeiten</a>
+                    <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                </div>
+            </form>
+
+        </td>
+    </tr>
     {% endfor %}
+    </tbody>
+</table>
+
+
 {% endblock content %}
