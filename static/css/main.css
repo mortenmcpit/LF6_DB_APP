@@ -20,19 +20,19 @@
 /* IEE Outline Button */
 .btn-outline-danger-sith {
     background-color: transparent;
-    border-color: #63040E;
-    color: #63040E;
+    border-color: #c5071d;
+    color: #c5071d;
 }
 
 .btn-outline-danger-sith:hover {
     color: #F9F9F9;
-    background-color: #49030a;
-    border-color: #63040E;
+    background-color: #c5071d;
+    border-color: #940515;
 }
 
 .btn-outline-danger-sith:focus {
-    border-color: #930614;
-    box-shadow: 0 0 0 0.2rem rgba(99, 4, 14, 0.25);
+    border-color: #940515;
+    box-shadow: 0 0 0 0.2rem rgba(223, 7, 32, 0.25);
 }
 
 .text-sith {
@@ -46,8 +46,6 @@
 }
 
 .text-sith-light {
-    padding-left: 1rem;
-    padding-right: 1rem;
     text-decoration: none;
     color: #df0720;
 }

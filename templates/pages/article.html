@@ -1,53 +1,54 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-<br>
-<div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-    <div class="card-header"><h1>{{ article.articlename }}</h1></div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-9">
-                <p class="card-text">Artikelnummer: {{ article.articlenumber }} <br>
-                    Hersteller: {{ article.producer }} <br>
-                    Preis: {{ article.price }} <br></p>
-            </div>
-            <div class="col-md-3">
-                <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
-                   title="Hersteller"
-                   href="{{ url_for('main.show_producer', id=article.producernumber) }}"><i class="fas fa-industry"></i></a>
+    <br>
+    <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header"><h1>{{ article.articlename }}</h1></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <p class="card-text">Artikelnummer: {{ article.articlenumber }} <br>
+                        Hersteller: {{ article.producer }} <br>
+                        Preis: {{ article.price }} <br></p>
+                </div>
+                <div class="col-md-3">
+                    <a class="btn btn-outline-dark" type="button" data-bs-toggle="tooltip"
+                       title="Hersteller"
+                       href="{{ url_for('main.show_producer', id=article.producernumber) }}"><i
+                            class="fas fa-industry"></i></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br>
+    <br>
 
-<h3>Bestellungen</h3>
+    <h3>Bestellungen</h3>
 
 
-<table class="table  table-bordered">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Kunde</th>
-        <th scope="col">Menge</th>
-        <th scope="col">Gesamtsumme</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Kunde</th>
+            <th scope="col">Menge</th>
+            <th scope="col">Gesamtsumme</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
 
-    {% for order in orders %}
-    <tr>
-        <th scope="row">{{ order.ordernumber }}</th>
-        <td>{{ order.customer }}</td>
-        <td>{{ order.articlequantity }}</td>
-        <td>{{ order.ordersum }}</td>
-        <td><a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
-               title="Kunde"
-               href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
-                class="fas fa-user-friends"></i></a></td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+        {% for order in orders %}
+            <tr>
+                <th scope="row">{{ order.ordernumber }}</th>
+                <td>{{ order.customer }}</td>
+                <td>{{ order.articlequantity }}</td>
+                <td>{{ order.ordersum }}</td>
+                <td><a class="btn btn-outline-dark" type="button" data-bs-toggle="tooltip"
+                       title="Kunde"
+                       href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
+                        class="fas fa-user-friends"></i></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 {% endblock content %}
