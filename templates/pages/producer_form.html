@@ -1,0 +1,32 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+
+<br>
+<div class="card text-black bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h1>{{ producer.producername }}</h1></div>
+    <div class="card-body">
+        <form action="" id="form" method="post">
+            {{ form.hidden_tag() }}
+            <table class="table  table-bordered">
+                <tbody>
+
+                <tr>
+                    <td>Herstellername:</td>
+                    <td>{{ form_field(form.producername) }}</td>
+                </tr>
+                <tr>
+                    <td>Land:</td>
+                    <td>{{ form_field(form.country) }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="submit-btn btn btn-success"
+                    style="width: 100%">
+                <i class="fas fa-plus"></i> Speichern
+            </button>
+
+        </form>
+    </div>
+</div>
+<br>
+{% endblock content %}

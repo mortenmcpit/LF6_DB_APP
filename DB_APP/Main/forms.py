@@ -29,7 +29,7 @@ class ArticleForm(FlaskForm):
 
     def update(self, obj):
         # self.populate_obj(obj)
-        obj.producernumber = self.producernumber.data
+        obj.producernumber = self.producernumber.data.producernumber
         obj.articlename = self.articlename.data
         obj.price = self.price.data
         db.session.commit()
@@ -58,7 +58,7 @@ class OrderForm(FlaskForm):
     def save(self):
         order = Order(ordernumber=ordernumgenerator(),
                       articlenumber=self.articlenumber.data.articlenumber,
-                      customernumber=self.customernumber.data.customernumber,
+                      customernumber=self.customernumber.data.personnumber,
                       articlequantity=self.articlequantity.data,
                       ordersum=self.ordersum.data)
         db.session.add(order)
@@ -66,8 +66,8 @@ class OrderForm(FlaskForm):
 
     def update(self, obj):
         # self.populate_obj(obj)
-        obj.articlenumber = self.articlenumber.data
-        obj.customernumber = self.customernumber.data
+        obj.articlenumber = self.articlenumber.data.articlenumber
+        obj.customernumber = self.customernumber.data.personnumber
         obj.articlequantity = self.articlequantity.data
         obj.ordersum = self.ordersum.data
         db.session.commit()

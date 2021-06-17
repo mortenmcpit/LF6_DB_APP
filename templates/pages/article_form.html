@@ -1,0 +1,36 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+
+<br>
+<div class="card text-black bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h1>{{ article.articlename }}</h1></div>
+    <div class="card-body">
+        <form action="" id="form" method="post">
+            {{ form.hidden_tag() }}
+            <table class="table  table-bordered">
+                <tbody>
+
+                <tr>
+                    <td>Hersteller:</td>
+                    <td>{{ form_field(form.producernumber) }}</td>
+                </tr>
+                <tr>
+                    <td>Artikelname:</td>
+                    <td>{{ form_field(form.articlename) }}</td>
+                </tr>
+                <tr>
+                    <td>Preis:</td>
+                    <td>{{ form_field(form.price) }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="submit-btn btn btn-success"
+                    style="width: 100%">
+                <i class="fas fa-plus"></i> Speichern
+            </button>
+
+        </form>
+    </div>
+</div>
+<br>
+{% endblock content %}

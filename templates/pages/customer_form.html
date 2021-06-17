@@ -1,0 +1,48 @@
+{% extends 'base/_base.html' %}
+{% block content %}
+
+<br>
+<div class="card text-black bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header"><h1>{{ customer.firstname }} {{ customer.lastname }}</h1></div>
+    <div class="card-body">
+        <form action="" id="form" method="post">
+            {{ form.hidden_tag() }}
+            <table class="table  table-bordered">
+                <tbody>
+
+                <tr>
+                    <td>Vorname:</td>
+                    <td>{{ form_field(form.firstname) }}</td>
+                </tr>
+                <tr>
+                    <td>Nachname:</td>
+                    <td>{{ form_field(form.lastname) }}</td>
+                </tr>
+                <tr>
+                    <td>Anschrift:</td>
+                    <td>{{ form_field(form.street) }}</td>
+                </tr>
+                <tr>
+                    <td>Stadt:</td>
+                    <td>{{ form_field(form.place) }}</td>
+                </tr>
+                <tr>
+                    <td>Land:</td>
+                    <td>{{ form_field(form.country) }}</td>
+                </tr>
+                <tr>
+                    <td>Geburtstag:</td>
+                    <td>{{ form_field(form.birthday) }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="submit-btn btn btn-success"
+                    style="width: 100%">
+                <i class="fas fa-plus"></i> Speichern
+            </button>
+
+        </form>
+    </div>
+</div>
+<br>
+{% endblock content %}

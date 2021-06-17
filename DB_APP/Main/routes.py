@@ -125,7 +125,7 @@ def edit_article(id):
         return redirect(url_for('main.articles'))
     if request.method == "GET":
         form.fill(obj=article)
-    return render_template('pages/article_form.html', form=form)
+    return render_template('pages/article_form.html', form=form, article=article)
 
 
 @main.route('/edit_producer/<int:id>', methods=['GET', 'POST'])
@@ -138,7 +138,7 @@ def edit_producer(id):
         return redirect(url_for('main.producers'))
     if request.method == "GET":
         form.fill(obj=producer)
-    return render_template('pages/producer_form.html', form=form)
+    return render_template('pages/producer_form.html', form=form, producer=producer)
 
 
 @main.route('/edit_customer/<int:id>', methods=['GET', 'POST'])
@@ -151,7 +151,7 @@ def edit_customer(id):
         return redirect(url_for('main.customers'))
     if request.method == "GET":
         form.fill(obj=customer)
-    return render_template('pages/customer_form.html', form=form)
+    return render_template('pages/customer_form.html', form=form, customer=customer)
 
 
 @main.route('/edit_order/<int:id>', methods=['GET', 'POST'])
@@ -164,7 +164,7 @@ def edit_order(id):
         return redirect(url_for('main.orders'))
     if request.method == "GET":
         form.fill(obj=order)
-    return render_template('pages/order_form.html', form=form)
+    return render_template('pages/order_form.html', form=form, order=order)
 
 
 """ Delete """

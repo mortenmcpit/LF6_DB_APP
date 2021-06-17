@@ -21,8 +21,8 @@
             <th scope="row">#</th>
             <td>{{ form_field(form.articlenumber) }}</td>
             <td>{{ form_field(form.customernumber) }}</td>
-            <td>{{ form_field(form.ordersum) }}</td>
             <td>{{ form_field(form.articlequantity) }}</td>
+            <td></td>
             <td>
                 <button type="submit" class="submit-btn btn btn-success">
                     Hinzufügen
@@ -36,8 +36,8 @@
         <th scope="row" class="text-center">{{ order.ordernumber }}</th>
         <td>{{ order.article }}</td>
         <td>{{ order.customer }}</td>
-        <td class="text-center">{{ order.ordersum }}</td>
         <td class="text-center">{{ order.articlequantity }}</td>
+        <td class="text-center">{{ order.articlequantity * order.article.price }}</td>
         <td>
             <form action="{{ url_for('main.delete_order', id=order.ordernumber) }}" method="post">
                 <div class="btn-group">
@@ -50,8 +50,8 @@
                        href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
                             class="fas fa-user-friends"></i></a>
                     <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
-                       title="Bearbeiten"
-                       href="{{ url_for('main.edit_order', id=order.ordernumber) }}"><i class="fas fa-wrench"></i></a>
+                       title="Bearbeiten" href="{{ url_for('main.edit_order', id=order.ordernumber) }}">
+                        <i class="fas fa-wrench"></i></a>
                     <button type="submit" class="btn btn-outline-danger" data-bs-toggle="tooltip"
                             title="Löschen"><i class="fas fa-trash-alt"></i></button>
                 </div>
