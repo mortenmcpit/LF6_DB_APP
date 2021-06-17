@@ -37,7 +37,7 @@
 
 .text-sith {
     text-decoration: none;
-    color: #63040E;
+    color: #B4061B;
 }
 
 .text-sith:hover {
@@ -45,18 +45,11 @@
     color: #930614;
 }
 
-.text-sith:link {
-    text-decoration: none;
-    color: #63040E;
-}
-
-.text-sith:visited {
-    text-decoration: none;
-    color: #63040E;
-}
-
 .text-sith-light {
-    color: #ab0718;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-decoration: none;
+    color: #df0720;
 }
 
 .text-sith-light:hover {

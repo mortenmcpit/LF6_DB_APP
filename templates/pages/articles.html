@@ -1,53 +1,59 @@
 {% extends 'base/_base.html' %}
 {% block content %}
-<h1>Artikel</h1>
+    <h1>Artikel</h1>
 
-<table class="table  table-bordered">
-    <thead>
-    <tr>
-        <th scope="col">Artikelnummer</th>
-        <th scope="col">Hersteller</th>
-        <th scope="col">Artikelname</th>
-        <th scope="col">Preis</th>
-    </tr>
-    </thead>
-    <tbody>
-    <form action="" id="form" method="post">
-        {{ form.hidden_tag() }}
-
+    <table class="table  table-bordered">
+        <thead>
         <tr>
-            <th scope="row">#</th>
-            <td>{{ form_field(form.producernumber) }}</td>
-            <td>{{ form_field(form.articlename) }}</td>
-            <td>{{ form_field(form.price) }}</td>
-            <td>
-                <button type="submit" class="submit-btn btn btn-success">
-                    <i class="fas fa-plus"></i> Hinzufügen
-                </button>
-            </td>
+            <th scope="col">Artikelnummer</th>
+            <th scope="col">Hersteller</th>
+            <th scope="col">Artikelname</th>
+            <th scope="col">Preis</th>
         </tr>
-    </form>
+        </thead>
+        <tbody>
+        <form action="" id="form" method="post">
+            {{ form.hidden_tag() }}
 
-    {% for article in articles %}
-    <tr>
-        <th scope="row" class="text-center">{{ article.articlenumber }}</th>
-        <td><a class="text-sith" href="{{ url_for('main.show_producer', id=article.producernumber) }}">{{ article.producer }}</a></td>
-        <td>{{ article.articlename }}</td>
-        <td class="text-center">{{ article.price }}</td>
-        <td>
-            <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" method="post">
-                <div class="btn-group">
-                    <a class="btn btn-outline-success" type="button"
-                       href="{{ url_for('main.edit_article', id=article.articlenumber) }}"><i class="fas fa-wrench"></i></a>
-                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            </form>
+            <tr>
+                <th scope="row">#</th>
+                <td>{{ form_field(form.producernumber) }}</td>
+                <td>{{ form_field(form.articlename) }}</td>
+                <td>{{ form_field(form.price) }}</td>
+                <td>
+                    <button type="submit" class="submit-btn btn btn-success">
+                        <i class="fas fa-plus"></i> Hinzufügen
+                    </button>
+                </td>
+            </tr>
+        </form>
 
-        </td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+        {% for article in articles %}
+            <tr>
+                <th scope="row" class="text-center">{{ article.articlenumber }}</th>
+                <td><a class="text-sith"
+                       href="{{ url_for('main.show_producer', id=article.producernumber) }}">{{ article.producer }}</a>
+                </td>
+                <td>{{ article.articlename }}</td>
+                <td class="text-center">{{ article.price }}</td>
+                <td>
+                    <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" method="post">
+                        <div class="btn-group">
+                            <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+                               title="Bearbeiten"
+                               href="{{ url_for('main.edit_article', id=article.articlenumber) }}">
+                                <i class="fas fa-wrench"></i></a>
+                            <button type="submit" class="btn btn-outline-danger" data-bs-toggle="tooltip"
+                               title="Löschen"><i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
 
 {% endblock content %}
