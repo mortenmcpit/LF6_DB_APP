@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('main.homepage') }}"><i class="fab fa-empire"></i>
-            <span>Imperial Market</span>
+        <a class="navbar-brand" href="{{ url_for('main.homepage') }}"><i class="fab fa-empire text-sith"></i>
+            <span>Imperial Market</span><span class="border-end ms-2"></span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,20 +10,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('main.articles') }}"><i
-                            class="fab fa-sith"></i> Artikel</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('main.articles') }}"><i
+                            class="fas fa-dolly-flatbed me-1 text-sith"></i>Artikel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('main.producers') }}"><i
-                            class="fab fa-sith"></i> Hersteller</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('main.producers') }}"><i
+                            class="fas fa-industry me-1 text-sith"></i>Hersteller</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('main.customers') }}"><i
-                            class="fab fa-sith"></i> Personen</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('main.customers') }}"><i
+                            class="fas fa-user-friends me-1 text-sith"></i>Personen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('main.orders') }}"><i
-                            class="fab fa-sith"></i> Bestellungen</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('main.orders') }}"><i
+                            class="fas fa-tag me-1 text-sith"></i>Bestellungen</a>
                 </li>
                 <!--
                 <li class="nav-item dropdown">
