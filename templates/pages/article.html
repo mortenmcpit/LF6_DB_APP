@@ -41,7 +41,10 @@
                 <th scope="row">{{ order.ordernumber }}</th>
                 <td>{{ order.customer }}</td>
                 <td>{{ order.articlequantity }}</td>
-                <td>{{ order.ordersum }}</td>
+                <td>{{ order.ordersum }}
+                    <img class="mb-1" src="{{ url_for('static', filename="img/imperial_credit.png") }}"
+                         height="15" width="15">
+                </td>
                 <td><a class="btn btn-outline-dark" type="button" data-bs-toggle="tooltip"
                        title="Kunde"
                        href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i

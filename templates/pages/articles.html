@@ -34,7 +34,10 @@
                 <th scope="row" class="text-center">{{ article.articlenumber }}</th>
                 <td>{{ article.producer }}</td>
                 <td>{{ article.articlename }}</td>
-                <td class="text-center">{{ article.price }}</td>
+                <td class="text-center">{{ article.price }}
+                    <img class="ms-1" src="{{ url_for('static', filename="img/imperial_credit.png") }}"
+                         height="15" width="15">
+                </td>
                 <td>
                     <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" method="post">
                         <div class="btn-group">

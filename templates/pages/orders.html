@@ -25,39 +25,41 @@
                 <td></td>
                 <td>
                     <button type="submit" class="submit-btn btn btn-success">
-                        Hinzufügen
+                        <i class="fas fa-plus"></i> Hinzufügen
                     </button>
                 </td>
             </tr>
         </form>
 
 
-    {% for order in orders %}
-    <tr>
-        <th scope="row" class="text-center">{{ order.ordernumber }}</th>
-        <td>{{ order.article }}</td>
-        <td>{{ order.customer }}</td>
-        <td class="text-center">{{ order.articlequantity }}</td>
-        <td class="text-center">{{ order.articlequantity * order.article.price }}</td>
-        <td>
-            <form action="{{ url_for('main.delete_order', id=order.ordernumber) }}" method="post">
-                <div class="btn-group">
-                    <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
-                       title="Artikel"
-                       href="{{ url_for('main.show_article', id=order.articlenumber) }}"><i
-                            class="fas fa-dolly-flatbed"></i></a>
-                    <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
-                       title="Kunde"
-                       href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
-                            class="fas fa-user-friends"></i></a>
-                    <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
-                       title="Bearbeiten" href="{{ url_for('main.edit_order', id=order.ordernumber) }}">
-                        <i class="fas fa-wrench"></i></a>
-                    <button type="submit" class="btn btn-outline-danger" data-bs-toggle="tooltip"
-                            title="Löschen"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            </form>
-
+        {% for order in orders %}
+            <tr>
+                <th scope="row" class="text-center">{{ order.ordernumber }}</th>
+                <td>{{ order.article }}</td>
+                <td>{{ order.customer }}</td>
+                <td class="text-center">{{ order.articlequantity }}</td>
+                <td class="text-center">{{ order.articlequantity * order.article.price }}
+                    <img class="mb-1" src="{{ url_for('static', filename="img/imperial_credit.png") }}"
+                         height="15" width="15">
+                </td>
+                <td>
+                    <form action="{{ url_for('main.delete_order', id=order.ordernumber) }}" method="post">
+                        <div class="btn-group">
+                            <a class="btn btn-outline-secondary" type="button" data-bs-toggle="tooltip"
+                               title="Artikel"
+                               href="{{ url_for('main.show_article', id=order.articlenumber) }}"><i
+                                    class="fas fa-dolly-flatbed"></i></a>
+                            <a class="btn btn-outline-secondary" type="button" data-bs-toggle="tooltip"
+                               title="Kunde"
+                               href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
+                                    class="fas fa-user-friends"></i></a>
+                            <a class="btn btn-outline-dark" type="button" data-bs-toggle="tooltip"
+                               title="Bearbeiten" href="{{ url_for('main.edit_order', id=order.ordernumber) }}">
+                                <i class="fas fa-wrench"></i></a>
+                            <button type="submit" class="btn btn-outline-danger-sith" data-bs-toggle="tooltip"
+                                    title="Löschen"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </form>
                 </td>
             </tr>
         {% endfor %}
