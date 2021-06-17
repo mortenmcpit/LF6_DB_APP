@@ -22,7 +22,8 @@
     <tr>
         <th scope="row">{{ producer.producernumber }}</th>
         <td>{{ producer.producername }}</td>
-        <td><a class="btn btn-outline-success" type="button"
+        <td><a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+               title="Hersteller"
                href="{{ url_for('main.show_producer', id=producer.producernumber) }}"><i
                 class="fas fa-industry"></i></a></td>
     </tr>
@@ -59,7 +60,8 @@
         <td>{{ customer.place }}</td>
         <td>{{ customer.zipcode }}</td>
         <td>{{ customer.birthday }}</td>
-        <td><a class="btn btn-outline-success" type="button"
+        <td><a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+               title="Kunde"
                href="{{ url_for('main.show_customer', id=customer.personnumber) }}"><i class="fas fa-tag"></i></a></td>
     </tr>
     {% endfor %}

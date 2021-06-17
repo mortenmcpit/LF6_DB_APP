@@ -11,7 +11,8 @@
                     Preis: {{ article.price }} <br></p>
             </div>
             <div class="col-md-3">
-                <a class="btn btn-outline-success" type="button"
+                <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+                   title="Hersteller"
                    href="{{ url_for('main.show_producer', id=article.producernumber) }}"><i class="fas fa-industry"></i></a>
             </div>
         </div>
@@ -40,7 +41,8 @@
         <td>{{ order.customer }}</td>
         <td>{{ order.articlequantity }}</td>
         <td>{{ order.ordersum }}</td>
-        <td><a class="btn btn-outline-success" type="button"
+        <td><a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+               title="Kunde"
                href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
                 class="fas fa-user-friends"></i></a></td>
     </tr>

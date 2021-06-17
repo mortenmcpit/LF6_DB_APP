@@ -14,7 +14,8 @@
                 </p>
             </div>
             <div class="col-md-3">
-                <a class="btn btn-outline-success" type="button"
+                <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+                   title="Land"
                    href="{{ url_for('main.show_country', name=customer.country) }}"><i class="fas fa-globe-europe"></i></a>
             </div>
         </div>
@@ -39,7 +40,8 @@
         <td>{{ order.article }}</td>
         <td>{{ order.articlequantity }}</td>
         <td>{{ order.ordersum }}</td>
-        <td><a class="btn btn-outline-success" type="button"
+        <td><a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+               title="Artikel"
                href="{{ url_for('main.show_article', id=order.articlenumber) }}"><i
                 class="fas fa-dolly-flatbed"></i></a></td>
     </tr>

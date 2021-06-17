@@ -35,13 +35,16 @@
         <td>
             <form action="{{ url_for('main.delete_producer', id=producer.producernumber) }}" method="post">
                 <div class="btn-group">
-                    <a class="btn btn-outline-success" type="button"
+                    <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+                       title="Land"
                        href="{{ url_for('main.show_country', name=producer.country) }}"><i
                             class="fas fa-globe-europe"></i></a>
-                    <a class="btn btn-outline-success" type="button"
+                    <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+                       title="Bearbeiten"
                        href="{{ url_for('main.edit_producer', id=producer.producernumber) }}"><i
                             class="fas fa-wrench"></i></a>
-                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
+                    <button type="submit" class="btn btn-outline-danger" data-bs-toggle="tooltip"
+                            title="Löschen"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </form>
 

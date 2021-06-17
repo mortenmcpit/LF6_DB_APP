@@ -12,7 +12,8 @@
                 </p>
             </div>
             <div class="col-md-3">
-                <a class="btn btn-outline-success" type="button"
+                <a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+                   title="Land"
                    href="{{ url_for('main.show_country', name=producer.country) }}"><i class="fas fa-globe-europe"></i></a>
             </div>
         </div>
@@ -37,7 +38,8 @@
         <th scope="row">{{ article.articlenumber }}</th>
         <td>{{ article.articlename }}</td>
         <td>{{ article.price }}</td>
-        <td><a class="btn btn-outline-success" type="button"
+        <td><a class="btn btn-outline-success" type="button" data-bs-toggle="tooltip"
+               title="Artikel"
                href="{{ url_for('main.show_article', id=article.articlenumber) }}"><i class="fas fa-dolly-flatbed"></i></a>
         </td>
     </tr>
