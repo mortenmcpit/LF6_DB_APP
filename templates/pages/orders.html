@@ -5,7 +5,7 @@
 <table class="table  table-bordered">
     <thead>
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Bestellnummer</th>
         <th scope="col">Artikel</th>
         <th scope="col">Kunde</th>
         <th scope="col">Menge</th>
@@ -19,7 +19,7 @@
 
         <tr>
             <th scope="row">#</th>
-            <td >{{ form_field(form.articlenumber) }}</td>
+            <td>{{ form_field(form.articlenumber) }}</td>
             <td>{{ form_field(form.customernumber) }}</td>
             <td>{{ form_field(form.ordersum) }}</td>
             <td>{{ form_field(form.articlequantity) }}</td>
@@ -34,16 +34,22 @@
     {% for order in orders %}
     <tr>
         <th scope="row" class="text-center">{{ order.ordernumber }}</th>
-        <td><a href="{{ url_for('main.show_article', id=order.articlenumber) }}">{{ order.article }}</a></td>
-        <td><a href="{{ url_for('main.customer_orders', id=order.customernumber) }}">{{ order.customer }}</a></td>
+        <td>{{ order.article }}</td>
+        <td>{{ order.customer }}</td>
         <td class="text-center">{{ order.ordersum }}</td>
         <td class="text-center">{{ order.articlequantity }}</td>
         <td>
             <form action="{{ url_for('main.delete_order', id=order.ordernumber) }}" method="post">
                 <div class="btn-group">
                     <a class="btn btn-outline-success" type="button"
-                       href="{{ url_for('main.edit_order', id=order.ordernumber) }}">Bearbeiten</a>
-                    <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                       href="{{ url_for('main.show_article', id=order.articlenumber) }}"><i
+                            class="fas fa-dolly-flatbed"></i></a>
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
+                            class="fas fa-user-friends"></i></a>
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.edit_order', id=order.ordernumber) }}"><i class="fas fa-wrench"></i></a>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </form>
 

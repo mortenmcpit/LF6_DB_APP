@@ -217,11 +217,11 @@ def delete_customer(id):
         return redirect(url_for('main.customers'))
     return render_template('', customer=customer)
 
-@main.route('/customer_orders/<int:id>', methods=['GET', 'POST'])
-def customer_orders(id):
+@main.route('/show_customer/<int:id>', methods=['GET', 'POST'])
+def show_customer(id):
     customer = Person.query.get_or_404(id)
     orders = Order.query.filter_by(customernumber=id)
-    return render_template('pages/costumer_orders.html', customer=customer, orders=orders)
+    return render_template('pages/costumer.html', customer=customer, orders=orders)
 
 @main.route('/show_article/<int:id>', methods=['GET', 'POST'])
 def show_article(id):
@@ -237,6 +237,7 @@ def show_producer(id):
 
 @main.route('/show_country/<string:name>', methods=['GET', 'POST'])
 def show_country(name):
+    country = name
     producers = Producer.query.filter_by(country=name)
     customers = Person.query.filter_by(country=name)
-    return render_template('pages/country.html', producers=producers, customers=customers)
+    return render_template('pages/country.html', producers=producers, customers=customers, country=country)

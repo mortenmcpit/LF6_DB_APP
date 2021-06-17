@@ -2,50 +2,48 @@
 {% block content %}
 <br>
 <div class="card text-black bg-light mb-3" style="max-width: 18rem;">
-    <div class="card-header"><h1>{{ article.articlename }}</h1></div>
+    <div class="card-header"><h1>{{ customer.firstname }} {{ customer.lastname }}</h1></div>
     <div class="card-body">
         <div class="row">
             <div class="col-md-9">
-                <p class="card-text">Artikelnummer: {{ article.articlenumber }} <br>
-                    Hersteller: {{ article.producer }} <br>
-                    Preis: {{ article.price }} <br></p>
+                <p class="card-text">
+                    Kundennummer: {{ customer.personnumber }} <br>
+                    Adr.: {{ customer.street }} <br>
+                    Stadt: {{ customer.place }} <br>
+                    Land: {{ customer.country }} <br>
+                </p>
             </div>
             <div class="col-md-3">
                 <a class="btn btn-outline-success" type="button"
-                   href="{{ url_for('main.show_producer', id=article.producernumber) }}"><i class="fas fa-industry"></i></a>
+                   href="{{ url_for('main.show_country', name=customer.country) }}"><i class="fas fa-globe-europe"></i></a>
             </div>
         </div>
     </div>
 </div>
 <br>
 
-<h3>Bestellungen</h3>
-
-
 <table class="table  table-bordered">
     <thead>
     <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Kunde</th>
+        <th scope="col">Bestellnummer</th>
+        <th scope="col">Produktname</th>
         <th scope="col">Menge</th>
         <th scope="col">Gesamtsumme</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
-
     {% for order in orders %}
     <tr>
         <th scope="row">{{ order.ordernumber }}</th>
-        <td>{{ order.customer }}</td>
+        <td>{{ order.article }}</td>
         <td>{{ order.articlequantity }}</td>
         <td>{{ order.ordersum }}</td>
         <td><a class="btn btn-outline-success" type="button"
-               href="{{ url_for('main.show_customer', id=order.customernumber) }}"><i
-                class="fas fa-user-friends"></i></a></td>
+               href="{{ url_for('main.show_article', id=order.articlenumber) }}"><i
+                class="fas fa-dolly-flatbed"></i></a></td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
-
 {% endblock content %}

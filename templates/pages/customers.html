@@ -7,7 +7,7 @@
 <table class="table  table-bordered">
     <thead>
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Kundennummer</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Adress</th>
@@ -47,17 +47,22 @@
         <td>{{ customer.street }}</td>
         <td>{{ customer.place }}</td>
         <td class="text-center">{{ customer.zipcode }}</td>
-        <td><a href="{{ url_for('main.show_country', name=customer.country) }}">{{ customer.country }}</a></td>
+        <td>{{ customer.country }}</td>
         <td class="text-center">{{ customer.birthday.strftime("%d.%m.%Y") }}</td>
         <td>
 
             <form action="{{ url_for('main.delete_customer', id=customer.personnumber) }}" method="post">
                 <div class="btn-group">
                     <a class="btn btn-outline-success" type="button"
-                       href="{{ url_for('main.customer_orders', id=customer.personnumber) }}">Bestellungen</a>
+                       href="{{ url_for('main.show_country', name=customer.country) }}"><i
+                            class="fas fa-globe-europe"></i></a>
                     <a class="btn btn-outline-success" type="button"
-                       href="{{ url_for('main.edit_customer', id=customer.personnumber) }}">Bearbeiten</a>
-                    <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                       href="{{ url_for('main.show_customer', id=customer.personnumber) }}"><i
+                            class="fas fa-dolly-flatbed"></i></a>
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.edit_customer', id=customer.personnumber) }}"><i
+                            class="fas fa-wrench"></i></a>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </form>
 

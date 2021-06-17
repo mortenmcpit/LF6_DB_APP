@@ -31,13 +31,17 @@
     <tr>
         <th scope="row" class="text-center">{{ producer.producernumber }}</th>
         <td>{{ producer.producername }}</td>
-        <td><a href="{{ url_for('main.show_country', name=producer.country) }}">{{ producer.country }}</a></td>
+        <td>{{ producer.country }}</td>
         <td>
             <form action="{{ url_for('main.delete_producer', id=producer.producernumber) }}" method="post">
                 <div class="btn-group">
-                <a class="btn btn-outline-success" type="button"
-                   href="{{ url_for('main.edit_producer', id=producer.producernumber) }}">Bearbeiten</a>
-                <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.show_country', name=producer.country) }}"><i
+                            class="fas fa-globe-europe"></i></a>
+                    <a class="btn btn-outline-success" type="button"
+                       href="{{ url_for('main.edit_producer', id=producer.producernumber) }}"><i
+                            class="fas fa-wrench"></i></a>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </form>
 
