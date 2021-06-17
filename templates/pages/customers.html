@@ -4,7 +4,7 @@
 <h1>Personen</h1>
 
 
-<table class="table table-bordered">
+<table class="table  table-bordered">
     <thead>
     <tr>
         <th scope="col">ID</th>
@@ -41,14 +41,14 @@
 
     {% for customer in customers %}
     <tr>
-        <th scope="row">{{ customer.personnumber }}</th>
+        <th scope="row" class="text-center">{{ customer.personnumber }}</th>
         <td>{{ customer.firstname }}</td>
         <td>{{ customer.lastname }}</td>
         <td>{{ customer.street }}</td>
         <td>{{ customer.place }}</td>
-        <td>{{ customer.zipcode }}</td>
+        <td class="text-center">{{ customer.zipcode }}</td>
         <td><a href="{{ url_for('main.show_country', name=customer.country) }}">{{ customer.country }}</a></td>
-        <td>{{ customer.birthday.strftime("%d.%m.%Y") }}</td>
+        <td class="text-center">{{ customer.birthday.strftime("%d.%m.%Y") }}</td>
         <td>
 
             <form action="{{ url_for('main.delete_customer', id=customer.personnumber) }}" method="post">

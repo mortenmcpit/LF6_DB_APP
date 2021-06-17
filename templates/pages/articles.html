@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Artikel</h1>
 
-<table class="table table-bordered">
+<table class="table  table-bordered">
     <thead>
     <tr>
         <th scope="col">Artikelnummer</th>
@@ -30,10 +30,10 @@
 
     {% for article in articles %}
     <tr>
-        <th scope="row">{{ article.articlenumber }}</th>
-        <td><a href="{{ url_for('main.show_producer', id=article.producernumber) }}">{{ article.producer }}</a></td>
+        <th scope="row" class="text-center">{{ article.articlenumber }}</th>
+        <td><a class="text-sith" href="{{ url_for('main.show_producer', id=article.producernumber) }}">{{ article.producer }}</a></td>
         <td>{{ article.articlename }}</td>
-        <td>{{ article.price }}</td>
+        <td class="text-center">{{ article.price }}</td>
         <td>
             <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" method="post">
                 <div class="btn-group">

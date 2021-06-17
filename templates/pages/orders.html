@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Bestellungen</h1>
 
-<table class="table table-bordered">
+<table class="table  table-bordered">
     <thead>
     <tr>
         <th scope="col">ID</th>
@@ -19,7 +19,7 @@
 
         <tr>
             <th scope="row">#</th>
-            <td>{{ form_field(form.articlenumber) }}</td>
+            <td >{{ form_field(form.articlenumber) }}</td>
             <td>{{ form_field(form.customernumber) }}</td>
             <td>{{ form_field(form.ordersum) }}</td>
             <td>{{ form_field(form.articlequantity) }}</td>
@@ -33,11 +33,11 @@
 
     {% for order in orders %}
     <tr>
-        <th scope="row">{{ order.ordernumber }}</th>
+        <th scope="row" class="text-center">{{ order.ordernumber }}</th>
         <td><a href="{{ url_for('main.show_article', id=order.articlenumber) }}">{{ order.article }}</a></td>
         <td><a href="{{ url_for('main.customer_orders', id=order.customernumber) }}">{{ order.customer }}</a></td>
-        <td>{{ order.ordersum }}</td>
-        <td>{{ order.articlequantity }}</td>
+        <td class="text-center">{{ order.ordersum }}</td>
+        <td class="text-center">{{ order.articlequantity }}</td>
         <td>
             <form action="{{ url_for('main.delete_order', id=order.ordernumber) }}" method="post">
                 <div class="btn-group">

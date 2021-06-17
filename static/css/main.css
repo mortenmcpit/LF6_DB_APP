@@ -1,0 +1,69 @@
+/* Sith-Style Buttons */
+.btn-danger-sith {
+    color: #F9F9F9;
+    background-color: #63040E;
+    border-color: #63040E;
+}
+
+.btn-danger-sith:hover {
+    color: #F9F9F9;
+    border-color: #63040E;
+    background-color: #49030a;
+}
+
+.btn-danger-sith:focus {
+    background-color: #49030a;
+    border-color: #49030a;
+    box-shadow: 0 0 0 0.2rem rgba(99, 4, 14, 0.25);
+}
+
+/* IEE Outline Button */
+.btn-outline-danger-sith {
+    background-color: transparent;
+    border-color: #63040E;
+    color: #63040E;
+}
+
+.btn-outline-danger-sith:hover {
+    color: #F9F9F9;
+    background-color: #49030a;
+    border-color: #63040E;
+}
+
+.btn-outline-danger-sith:focus {
+    border-color: #930614;
+    box-shadow: 0 0 0 0.2rem rgba(99, 4, 14, 0.25);
+}
+
+.text-sith {
+    text-decoration: none;
+    color: #63040E;
+}
+
+.text-sith:hover {
+    text-decoration: none;
+    color: #930614;
+}
+
+.text-sith:link {
+    text-decoration: none;
+    color: #63040E;
+}
+
+.text-sith:visited {
+    text-decoration: none;
+    color: #63040E;
+}
+
+.text-sith-light {
+    color: #ab0718;
+}
+
+.text-sith-light:hover {
+    color: #930614;
+}
+
+/* Site Background */
+.bg-sith {
+    background-color: #DFDFDF;
+}

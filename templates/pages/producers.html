@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Hersteller</h1>
 
-<table class="table table-bordered">
+<table class="table  table-bordered">
     <thead>
     <tr>
         <th scope="col">Herstellernummer</th>
@@ -29,7 +29,7 @@
 
     {% for producer in producers %}
     <tr>
-        <th scope="row">{{ producer.producernumber }}</th>
+        <th scope="row" class="text-center">{{ producer.producernumber }}</th>
         <td>{{ producer.producername }}</td>
         <td><a href="{{ url_for('main.show_country', name=producer.country) }}">{{ producer.country }}</a></td>
         <td>
