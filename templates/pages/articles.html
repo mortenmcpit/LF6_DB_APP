@@ -22,7 +22,7 @@
             <td>{{ form_field(form.price) }}</td>
             <td>
                 <button type="submit" class="submit-btn btn btn-success">
-                    Hinzufügen
+                    <i class="fas fa-plus"></i> Hinzufügen
                 </button>
             </td>
         </tr>
@@ -38,8 +38,8 @@
             <form action="{{ url_for('main.delete_article', id=article.articlenumber) }}" method="post">
                 <div class="btn-group">
                     <a class="btn btn-outline-success" type="button"
-                       href="{{ url_for('main.edit_article', id=article.articlenumber) }}">Bearbeiten</a>
-                    <button type="submit" class="btn btn-outline-danger">Löschen</button>
+                       href="{{ url_for('main.edit_article', id=article.articlenumber) }}"><i class="fas fa-wrench"></i></a>
+                    <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </form>
 
