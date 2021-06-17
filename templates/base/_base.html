@@ -9,21 +9,24 @@
     {% include 'imports/_css_import.html' %}
     {% include 'imports/_js_import.html' %}
 </head>
-<body class="bg-light">
+<body class="d-flex flex-column min-vh-100" style="background-color: #f0f2f4;">
 {% include 'base/_nav.html' %}
-<div class="container-fluid">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="alert mx-auto alert-{{ category }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    {% from 'macros/macros.html' import form_field %}
-    {% block content %}
-    {% endblock content %}
-</div>
+<main>
+    <div class="container-fluid">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert mx-auto alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% from 'macros/macros.html' import form_field %}
+        {% block content %}
+        {% endblock content %}
+    </div>
+</main>
+{% include 'base/_footer.html' %}
 </body>
 </html>
